@@ -38,6 +38,24 @@ $form.controls.AddRange(@($labelUsername, $labelPassword, $textPassword, $textUs
 
 #---------------------------------------------------------------
 
+$url = "sample http url"
+$output = "$PSScriptRoot\Resource\Example File.xlsx"
+
+$okButton.add_Click({
+
+    $username = $textUsername.Text
+    $password = $textPassword.Text
+
+    $Headers = @{ Authorization = "Basic {0}" -f [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password))) }
+
+    Invoke-RestMethod -Uri $url -OutFile $output -Headers $Headers
+
+    #invoke file conversion
+    & "$PSScriptRoot\file-conversion.ps1"
+
+    $form.Close()
+
+})
 
 
 [void]$form.ShowDialog()

@@ -94,7 +94,7 @@ $form.controls.AddRange(@($label, $textbox, $textResults, $okButton, $resetButto
 #---------------------------------------------------------
 
 #import csv file
-$ShareDrive = Import-Csv -Path "$PSScriptRoot\Resource\Global Share Drives.csv"
+$ShareDrive = Import-Csv -Path "$PSScriptRoot\Resource\Example File.csv"
 
 function comparePaths ($PathInputted){
     $folderPaths = $_.'Folder Path'

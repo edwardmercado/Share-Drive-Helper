@@ -17,5 +17,5 @@ Function ExcelToCsv ($File){
 
 }
 
-$FileName = "Global Share Drives"
+$FileName = "Example File"
 ExcelToCsv -File $FileName
